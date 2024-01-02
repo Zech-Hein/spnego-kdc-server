@@ -93,6 +93,9 @@ EOT
 	
     echo "Creating HTTP/libertyhost Account"
     kadmin.local -q "addprinc -pw ${KRB5_PASS} HTTP/libertyhost@${KRB5_REALM}"
+	
+	echo "Creating keytab for HTTP/libertyhost: HTTP_libertyhost.keytab"
+	kadmin.local -q "ktadd -k /etc/HTTP_libertyhost.keytab HTTP/libertyhost@${KRB5_REALM}"
 
 fi
 
